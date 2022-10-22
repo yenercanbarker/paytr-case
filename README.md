@@ -63,7 +63,13 @@ Kullandığım yapı şu şekilde :
 **Interface** : Repository olarak kullanıyorum. (İleride olası bir veri tabanı değişikliği kolayca gerçekleştirilebilir.)
 
 **Provider**: Repository ve Interface'leri birbirlerine bağlamak için **RepositoryInterfaceProvider** oluşturdum. Laravel'in app bind yapısını kullandım.
+
 **Facade**: Sepet içeriğinde tutar içeriklerini hesaplaması için PriceCalculator Facade'ını oluşturdum.
 
-**Dependency Injection** çözümünü **Constructor** içeriğinde **bind** işlemi yaparak gerçekleştirdim.  
+**Dependency Injection** çözümünü **Constructor** içeriğinde **bind** işlemi yaparak gerçekleştirdim. 
+
+## İletişim
+
+Kurulum sırasında veya projeyi kullanım sırasında bir sorun ile karşılaştıysanız ve/veya proje hakkında sormak istediğiniz bir şey varsa
+bana [LinkedIn](https://www.linkedin.com/in/yenercanbarker/) veya **yenercanbarker@gmail.com** mail adresi üzerinden ulaşabilirsiniz.
 
