@@ -16,9 +16,4 @@ class Category extends Model
         'created_at',
         'updated_at'
     ];
-
-    public function products()
-    {
-        return $this->hasMany('App\Models\CategoryProduct', 'category_id', 'id');
-    }
 }
