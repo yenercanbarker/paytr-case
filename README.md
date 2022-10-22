@@ -33,8 +33,6 @@ API rotalarına istek atabilmek için Bearer Token'e ihtiyacınız bulunmaktadı
 
 ## Kayıt Olma & Giriş Yapma & Yetkilendirme
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
-
 API rotalarına istek atabilmek için **Bearer Token**'e ihtiyaç  duyulmaktadır.
 
 **Ürün**,  **Kategori** ve **Vitrin** işlemlerini yalnızca **Admin** rolüne sahip olan kullanıcılar gerçekleştirebilir (Admin Panel simülasyonu gibi düşünebilirsiniz).  **Sepet**,  **Favorilere Ekleme** ve **Vitrini Görüntüleme** rolden bağımsız **her kullanıcı** için erişilebilir durumdadır.
