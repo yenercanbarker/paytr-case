@@ -55,7 +55,7 @@ Kullandığım yapı şu şekilde :
 
 **Middleware** : Klasik Middleware yapısı, Admin işlemleri için ekstra bir middleware oluşturdum.
 
-**Controller** : İstekleri karşılar ve yönlendirme yapar.  
+**Controller** : İstekleri karşılar ve yönlendirme yapar. (**RedirectHelper** adında bir Helper oluşturdum ve bütün return işlemlerini ortak bir yapıda birleştirdim.)
 
 **Request** : Form validasyon işlemleri burada yapılır.  
 
@@ -68,6 +68,8 @@ Kullandığım yapı şu şekilde :
 **Provider**: Repository ve Interface'leri birbirlerine bağlamak için **RepositoryInterfaceProvider** oluşturdum. Laravel'in app bind yapısını kullandım.
 
 **Facade**: Sepet içeriğinde tutar içeriklerini hesaplaması için PriceCalculator Facade'ını oluşturdum.
+
+**Handler**: Hata yakalama işlemlerinde projenin çalışmaya devam etmesi ve API üzerinden hatanın ne olduğunu anlatan özel bir return formatı oluşturdum.
 
 **Dependency Injection** çözümünü **Constructor** içeriğinde **bind** işlemi yaparak gerçekleştirdim. 
 
