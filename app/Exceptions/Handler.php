@@ -2,7 +2,13 @@
 
 namespace App\Exceptions;
 
+use App\Http\Helpers\RedirectHelper;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use League\OAuth2\Server\Exception\OAuthServerException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -44,7 +50,58 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+
         });
+    }
+
+    public function render($request, $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            return RedirectHelper::error([
+                'error' => [
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine()
+                ]
+            ]);
+        }
+        
+        if ($e instanceof ValidationException) {
+            return RedirectHelper::error([
+                'error' => [
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine()
+                ]
+            ], 'Error', 422);
+        }
+
+        if ($e instanceof NotFoundHttpException) {
+            return RedirectHelper::error([
+                'error' => [
+                    'message' => 'Route not found'
+                ]
+            ], '404 Not Found!', 404);
+        }
+
+        if ($e instanceof MethodNotAllowedHttpException) {
+            return RedirectHelper::error([
+                'error' => [
+                    'message' => 'Request method not allowed'
+                ]
+            ], '405 Method Not allowed!', 405);
+        }
+
+        if ($e instanceof OAuthServerException) {
+            return RedirectHelper::error([
+                'error' => [
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine()
+                ]
+            ], 'Unauthenticated', 401);
+        }
+
+        return parent::render($request, $e);
     }
 }

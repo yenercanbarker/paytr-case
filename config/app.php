@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Facades\FacadeClasses\PriceCalculator;
+use App\Providers\FacadeServiceProvider;
+use App\Providers\RepositoryInterfaceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -123,6 +126,10 @@ return [
 
     'key' => env('APP_KEY'),
 
+    'passport_client_id' => env('PASSPORT_CLIENT_ID'),
+
+    'passport_client_secret' => env('PASSPORT_CLIENT_SECRET'),
+
     'cipher' => 'AES-256-CBC',
 
     /*
@@ -195,6 +202,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Custom Service Providers...
+         */
+        FacadeServiceProvider::class,
+        RepositoryInterfaceProvider::class
     ],
 
     /*
@@ -210,6 +222,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'PriceCalculator' => PriceCalculator::class
     ])->toArray(),
 
 ];
