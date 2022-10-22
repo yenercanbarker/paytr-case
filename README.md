@@ -54,10 +54,15 @@ Kullanıcı oluşturmak için "**Register User**" rotasını kullanabilirsiniz. 
 Kullandığım yapı şu şekilde :
 
 **Middleware** : Klasik Middleware yapısı, Admin işlemleri için ekstra bir middleware oluşturdum.
+
 **Controller** : İstekleri karşılar ve yönlendirme yapar.  
+
 **Request** : Form validasyon işlemleri burada yapılır.  
+
 **Service** : Mantıksal işlemleri yapar.  
+
 **Repository** : Bütün veri tabanı işlemleri burada yapılır.  
+
 **Interface** : Repository olarak kullanıyorum. (İleride olası bir veri tabanı değişikliği kolayca gerçekleştirilebilir.)
 
 **Provider**: Repository ve Interface'leri birbirlerine bağlamak için **RepositoryInterfaceProvider** oluşturdum. Laravel'in app bind yapısını kullandım.
